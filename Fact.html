@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+  <title>Fact Check</title>
+  <link rel="stylesheet" href="Fact Page.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="header">
+        <div id="menu">
+          <a class="menuItem" href="Index.html">Home</a>
+          <a class="menuItem" href="Fact.html">Fact Check</a>
+          <a class="menuItem" href="Services.html">Services</a>
+          <a class="menuItem" href="twinestory.html">History</a>
+          <a class="menuItem" href="Story.html">Story</a>
+        </div>
+        <div id="fontControls">
+        <input type="button" value="Increase Font Size" onclick="increaseSizeBy3px()">
+        <input type="button" value="Decrease Font Size" onclick="decreaseSizeBy3px()">
+        </div>
+        <div id="readWholePage">
+          <div id="speakerBox">
+              <span id="readWholePageText">Read Whole Page</span>
+              <i id="speakerIcon" class="fas fa-volume-up"></i>
+          </div>
+      </div>
+    </div>
+  <h1 id="truth">Let's dig into some truth</h1>
+  <hr>
+
+  <div id="questions-container">
+    <div class="question-box">
+      <a href="FirstQuestion.html">
+        <p>
+          Have you ever noticed how much <span style="color: red;">VISION</span> facilitates everyday life?
+        </p>
+      </a>
+    </div>
+    <div class="question-box">
+      <a href="SecondQuestion.html">
+      <p>Do you know what are some <span style="color: red;">CAUSES</span> of vision loss?</p>
+    </a>
+    </div>
+    <div class="question-box">
+      <a href="ThirdQuestion.html">
+      <p>How to define <span style="color: red;">VISUAL IMPAIRMENTS</span>?</p>
+    </a>
+    </div>
+    <div class="question-box">
+      <a href="FourthQuestion.html">
+      <p>Can visually impaired persons still find a <span style="color: red;">JOB?</span></p>
+    </a>
+    </div>
+  </div>
+
+<script>
+function increaseSizeBy3px() {
+            console.log("Increasing font size by 3px...");
+            changeFontSizeByAmount(3);
+        }
+        function decreaseSizeBy3px() {
+            console.log("Decreasing font size by 3px...");
+            changeFontSizeByAmount(-3);
+        }   
+        function changeFontSizeByAmount(amount) {
+            console.log("Changing font size by", amount, "px...");
+            var elements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6');
+            elements.forEach(function(element) {
+                var fontSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
+                var currentFontSize = parseInt(fontSize);
+                element.style.fontSize = (currentFontSize + amount) + "px";
+            });
+        }
+        document.getElementById("speakerIcon").addEventListener("click", function() {
+    const audio = new Audio('First Question.mp3');
+    audio.play();
+});
+
+window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            if (scrollPosition > 100) {
+                document.getElementById('backToTopButton').style.display = 'block';
+            } else {
+                document.getElementById('backToTopButton').style.display = 'none';
+            }
+        });
+        document.getElementById('backToTopButton').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+    </script>
+
+    
+</body>
+</html>

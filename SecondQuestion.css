@@ -1,0 +1,162 @@
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgrey;
+    padding: 10px 20px;
+  }
+  
+  #readWholePage {
+    display: flex;
+    justify-content: flex-end; 
+  }
+  
+  #speakerBox {
+    display: inline-flex; 
+    align-items: center; 
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer; 
+    font-weight: bold;
+  }
+  
+  #speakerBox:hover {
+    background-color: darkblue; 
+  }
+  
+  #readWholePageText {
+    margin-right: 10px;
+  }
+  
+  #speakerIcon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  
+  #speakerIcon:hover {
+    transform: scale(1.2); 
+  }
+  
+  #menu {
+    display: flex;
+  }
+  
+  .menuItem {
+    margin: 0 10px;
+    font-size: 26px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .menuItem:not(:last-child)::after {
+    content: "|";
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #fontControls {
+    margin-right: 3px;
+  }
+
+#fontControls input[type="button"] {
+    font-size: 24px;
+    padding: 5px 10px; 
+    margin:0;
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#header input[type="button"]:hover {
+    background-color: #ff8c66;
+    color: white;
+    cursor:pointer;
+}
+
+  #SecondSentenceContainer {
+    margin-left: auto; 
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+#factButton2 {
+    margin-left: 20px;
+    font-size: 20px;
+}
+  #causes {
+    margin-left: 20px; 
+    font-size: 38px;
+  }
+
+  #nextParagraph {
+    margin-left: 20px; 
+    font-size: 24px;
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block; 
+  }
+  
+  .tooltip .external-link-icon {
+    position: absolute;
+    right: 18;
+    padding-left: 5px; 
+  }
+  
+  .tooltip .external-link-icon i {
+    cursor: pointer;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 12px;
+    position: absolute;
+    z-index: 1;
+    top: calc(100% + 5px); 
+    left: 50%;
+    transform: translateX(-50%); 
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: -5px; 
+    left: calc(50% - 5px); 
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #backToTopButton {
+    display: none; 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    background-color: #007bff; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    text-decoration: none; 
+  }
+  
+  #backToTopButton:hover {
+    background-color: #0056b3; 
+  }

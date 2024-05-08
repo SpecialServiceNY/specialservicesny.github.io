@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<head>
+  <title>Fact Check</title>
+  <link rel="stylesheet" href="FirstQuestion.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="header">
+        <div id="menu">
+          <a class="menuItem" href="Index.html">Home</a>
+          <a class="menuItem" href="Fact.html">Fact Check</a>
+          <a class="menuItem" href="Services.html">Services</a>
+          <a class="menuItem" href="twinestory.html">History</a>
+          <a class="menuItem" href="Story.html">Story</a>
+        </div>
+        <div id="fontControls">
+        <input type="button" value="Increase Font Size" onclick="increaseSizeBy3px()">
+        <input type="button" value="Decrease Font Size" onclick="decreaseSizeBy3px()">
+        </div>
+        <div id="readWholePage">
+          <div id="speakerBox">
+              <span id="readWholePageText">Read Whole Page</span>
+              <i id="speakerIcon" class="fas fa-volume-up"></i>
+          </div>
+      </div>
+      </div>
+    </div>
+
+  <div id="firstSentenceContainer">
+    <p id="visually" style="font-family: 'Alice-Regular', sans-serif;">Have you ever noticed how much <span id="visually-impaired" style="color: red;">VISION</span> facilitates everyday life? </p>
+    <br>
+    <button id="factButton1">FACT</button>
+    <audio id="backgroundMusic" src="C:\Users\FeNis\Desktop\PMMA6215Interactive\Final Website\awaken-136824.mp3" preload="auto"></audio>
+  </div>
+
+  <div id="contentWrapper">
+    <div id="sentences"></div>
+  </div>
+  <button id="playButton" style="display: none;" onclick="playAudio()">Play Audio</button>
+  <button id="readAgainButton" style="display: none;">READ AGAIN</button>
+
+  <a href="#top" id="backToTopButton">Back to Top</a>
+    <script>
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            if (scrollPosition > 100) {
+                document.getElementById('backToTopButton').style.display = 'block';
+            } else {
+                document.getElementById('backToTopButton').style.display = 'none';
+            }
+        });
+        document.getElementById('backToTopButton').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+  <script>
+  function playMusic(volume) {
+        const audio = document.getElementById("backgroundMusic");
+        audio.volume = volume;
+        audio.play();
+    }
+
+    document.getElementById("factButton1").addEventListener("click", function() {
+        playMusic(0.5); 
+
+        displaySentences("sentences");
+    });
+    const sentences = [
+      { text: "Vision, the most dominant of our senses,", sound:"nature.mp3" },
+      { text: "plays a critical role in every facet and stage of our lives.", sound:"Pulsing.mp3"},
+      { text: "We take vision for granted," },
+      { text: "but without vision,", sound:"whooshing.mp3" },
+      { text: "we struggle to learn,", sound: "learn.mp3" },
+      { text: "to walk,", sound: "walk.mp3" },
+      { text: "to read,", sound: "read.mp3" },
+      { text: "to participate in school", sound: "school.mp3" },
+      { text: "and to work.", sound: "work.mp3" },
+      { text: "" }, 
+      { text: "Human behavior states that we learn through modeling." },
+      { text: "Babies know how to smile", sound:"child laugh.mp3" },
+      { text: "because they see other people smile to them.", sound:"braille.mp3" },
+      { text: "However, visually impaired persons have to learn those things in different ways.", sound:"braille.mp3" },
+    ];
+
+
+    function displaySentences(targetElementId) {
+    const targetElement = document.getElementById(targetElementId);
+    targetElement.innerHTML = "";
+
+    let index = 0;
+
+
+    function displayNextSentence() {
+        if (index < sentences.length) {
+            const sentence = sentences[index];
+            let sentenceHTML = "";
+            if (sentence.text !== "") {
+                sentenceHTML += sentence.text + "<br>";
+            } else {
+                sentenceHTML += "<br>";
+            }
+
+            if (!targetElement.innerHTML.includes(sentenceHTML)) {
+                targetElement.innerHTML += sentenceHTML;
+
+                if (sentence.sound) {
+                    const audio = new Audio(sentence.sound);
+                    audio.play();
+
+                    const audioDuration = index === sentences.length - 1 ? 4000 : 2000;
+
+                    setTimeout(() => {
+                        audio.pause();
+                        audio.currentTime = 0;
+                    }, audioDuration);
+                }
+
+            }
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+            index++;
+        } else {
+            document.getElementById("readAgainButton").style.display = "inline-block";
+            document.getElementById("playButton").style.display = "inline-block";
+            return;
+        }
+
+        setTimeout(displayNextSentence, 2000);
+    }
+
+    displayNextSentence();
+}
+
+function playAudio() {
+    const audio = new Audio('C:/Users/FeNis/Desktop/PMMA6215Interactive/Final Website/Learning process.MP3');
+    audio.play();
+    
+    playMusic(0.05); 
+}
+
+document.getElementById("playButton").addEventListener("click", playAudio);
+
+document.getElementById("readAgainButton").addEventListener("click", function() {
+    document.getElementById("sentences").innerHTML = ""; 
+    imageElement.src = ""; 
+    clearInterval(imageInterval); 
+    displaySentences("sentences"); 
+});
+
+document.getElementById("speakerIcon").addEventListener("click", function() {
+    const audio = new Audio('First Question.mp3');
+    audio.play();
+});
+
+  </script>
+</body>
+</html>

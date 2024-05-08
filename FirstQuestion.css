@@ -1,0 +1,169 @@
+@font-face {
+  font-family: "myFont";
+  src: url("Alice-Regular.ttf");
+}
+
+html {
+  font-family: "myFont", "Arial", serif;
+}
+
+#visually {
+  margin-right: 20px;
+  margin-left: 10px;
+  font-size: 30px; 
+  margin-bottom: 20px; 
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgrey;
+  padding: 10px 20px;
+}
+
+#menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+#readWholePage {
+  display: flex;
+  justify-content: flex-end; 
+}
+
+#speakerBox {
+  display: inline-flex; 
+  align-items: center; 
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer; 
+  font-weight: bold;
+}
+
+#speakerBox:hover {
+  background-color: darkblue; 
+}
+
+#readWholePageText {
+  margin-right: 10px;
+}
+
+#speakerIcon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+#speakerIcon:hover {
+  transform: scale(1.2); 
+}
+.menuItem {
+  margin: 0 10px;
+  font-size: 26px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.menuItem:not(:last-child)::after {
+  content: "|";
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+#fontControls {
+  margin-right: 3px;
+}
+
+#fontControls input[type="button"] {
+  font-size: 24px;
+  padding: 5px 10px; 
+  margin:0;
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+#header input[type="button"]:hover {
+  background-color: #ff8c66;
+  color: white;
+  cursor:pointer;
+}
+
+#factButton1 {
+  margin-left: 20px;
+  font-size: 20px;
+  padding: 10px 20px;
+}
+
+#firstSentenceContainer {
+  margin-left: 20px;
+  font-size: 38px;
+  font-weight: bold;
+}
+
+#sentences {
+  margin-left: 40px; 
+  margin-right: 20px; 
+  width:min-content; 
+  font-size: 26px; 
+  line-height: 2; 
+  flex: 1; 
+}
+
+#contentWrapper {
+  display: flex;
+}
+
+#imageContainer {
+  flex: 0 0 200px; 
+  margin-left: 20px; 
+}
+
+#image {
+  display:inline; 
+  width: 100%; 
+  height: auto; 
+}
+
+#readAgainButton {
+  position:relative; 
+  left: 50%;
+  transform: translateX(-50%); 
+  font-size:20px;
+  padding: 10px 20px;
+}
+
+.img[src=""] {
+  display: none;
+}
+
+#playButton {
+  display: none;
+  font-size:20px;
+  padding: 10px 20px;
+  background-color:#ff5733;
+  color:white;
+  margin-left: 20px;
+}
+
+#backToTopButton {
+  display: none; 
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+  background-color: #007bff; 
+  color: white; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  text-decoration: none; 
+}
+
+#backToTopButton:hover {
+  background-color: #0056b3; 
+}

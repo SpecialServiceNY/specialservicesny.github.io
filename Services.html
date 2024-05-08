@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<head>
+  <title>Service Search</title>
+  <link rel="stylesheet" href="Services.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="header">
+        <div id="menu">
+          <a class="menuItem" href="Index.html">Home</a>
+          <a class="menuItem" href="Fact.html">Fact Check</a>
+          <a class="menuItem" href="Services.html">Services</a>
+          <a class="menuItem" href="twinestory.html">History</a>
+          <a class="menuItem" href="Story.html">Story</a>
+        </div>
+        <div id="fontControls">
+        <input type="button" value="Increase Font Size" onclick="increaseSizeBy3px()">
+        <input type="button" value="Decrease Font Size" onclick="decreaseSizeBy3px()">
+        </div>
+    </div>
+  <a href="#top" id="backToTopButton">Back to Top</a>
+  <script>
+      window.addEventListener('scroll', function() {
+          var scrollPosition = window.scrollY;
+          if (scrollPosition > 100) {
+              document.getElementById('backToTopButton').style.display = 'block';
+          } else {
+              document.getElementById('backToTopButton').style.display = 'none';
+          }
+      });
+      document.getElementById('backToTopButton').addEventListener('click', function() {
+          window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+          });
+      });
+  </script>
+      <script>
+        function increaseSizeBy3px() {
+            console.log("Increasing font size by 3px...");
+            changeFontSizeByAmount(3);
+        }
+        function decreaseSizeBy3px() {
+            console.log("Decreasing font size by 3px...");
+            changeFontSizeByAmount(-3);
+        }   
+        function changeFontSizeByAmount(amount) {
+            console.log("Changing font size by", amount, "px...");
+            var elements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6');
+            elements.forEach(function(element) {
+                var fontSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
+                var currentFontSize = parseInt(fontSize);
+                element.style.fontSize = (currentFontSize + amount) + "px";
+            });
+        }
+    </script>
+    <div id="search-container">
+    <label for="location">Location:</label>
+    <select id="location">
+      <option value="Manhattan">Manhattan</option>
+      <option value="Brooklyn">Brooklyn</option>
+      <option value="Bronx">Bronx</option>
+      <option value="Staten Island">Staten Island</option>
+      <option value="Queens">Queens</option>
+      <option value="In-Home">In-Home</option>
+      <option value="Others">Others</option>
+    </select>
+    
+    <label for="age">Age range:</label>
+    <select id="age">
+      <option value="under_10">Under 10</option>
+      <option value="11_21">11-21</option>
+      <option value="22_54">22-54</option>
+      <option value="over_55">Over 55</option>
+      <option value="all ages">All Ages</option>
+    </select>
+
+    <button id="searchButton">Search</button>
+    </div>
+    <div id="results-container"></div>
+
+  
+    <script>
+    document.getElementById("searchButton").addEventListener("click", search);
+
+    function search() {
+  const locationDropdown = document.getElementById("location");
+  const selectedLocation = locationDropdown.value;
+  console.log("Selected location:", selectedLocation);
+
+  const ageDropdown = document.getElementById("age");
+  const selectedAge = ageDropdown.value;
+  console.log("Selected age:", selectedAge);
+
+  const results = performSearch(selectedLocation, selectedAge);
+  console.log("Results:", results);
+
+  displayResults(results);
+}
+
+function performSearch(location, age) {
+  if (location === "In-Home" && age === "over_55") {
+    return [{
+      name: "Adaptive Living Program",
+      url: "https://ocfs.ny.gov/programs/nyscb/programs/independent-living.php",
+      description: "The Adaptive Living Program (ALP), is for people who need training and services to assist them in living at home and in the community.",
+      image: "https://static01.nyt.com/images/2023/12/01/multimedia/01LTC-HOMECARE-SERVICE-02-bmvf/01LTC-HOMECARE-SERVICE-02-bmvf-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+      video: "",
+      mapLocation: "",
+      tags: ["Adjustment Counseling", "Rehabilitation Teaching", "Orientation & Mobility"]
+    }];
+  
+  } else if (location === "Brooklyn" && age === "over_55") {
+    return [{
+      name: "HKNC Older Adult Program",
+      url: "https://www.helenkeller.org/hknc/senior-aids-for-daily-living/",
+      description: "Older adults with combined hearing and vision loss comprise the largest group of people who are DeafBlind in the United States. Yet, many of them remain unserved or underserved. Often, these adults don't think of themselves as DeafBlind.",
+      image: "https://www.helenkeller.org/wp-content/uploads/2022/08/senior_program_fingerspelling_026.jpeg",
+      video:"https://www.youtube.com/embed/A0yRIThy4zg?si=UMuKMtC5xFEF8tdk",
+      mapLocation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224.85632488714867!2d-73.98668978844495!3d40.689521336870996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a4c442e6977%3A0xd679c83401c56d28!2s180%20Livingston%20St%2C%20Brooklyn%2C%20NY%2011201!5e0!3m2!1sen!2sus!4v1714573762078!5m2!1sen!2sus" ,
+      tags: ["Caregiver Support", "Advocacy and Education"]
+    }];
+  
+  } else if (location === "Brooklyn" && (age === "11_21" || age === "22_54")) {
+    return [{
+      name: "Comprehensive Vocational Rehabilitation Program",
+      url: "https://www.helenkeller.org/comprehensive-vocational-rehabilitation-program/",
+      description: "HKNC is the only organization in the country that provides comprehensive vocational and rehabilitation services to youth and adults aged 16 and older who are DeafBlind or have combined hearing and vision loss.",
+      image: "CVRP.jpg",
+      video:"https://www.youtube.com/embed/HhNLwJTIb38?si=h0J6DwrFqZd0O4ad",
+      mapLocation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224.85632488714867!2d-73.98668978844495!3d40.689521336870996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a4c442e6977%3A0xd679c83401c56d28!2s180%20Livingston%20St%2C%20Brooklyn%2C%20NY%2011201!5e0!3m2!1sen!2sus!4v1714573762078!5m2!1sen!2sus" ,
+      tags: ["Adaptive Technology", "Orientation & Mobility", "Vocational Training"]
+    }];
+  
+  } else if (location === "Manhattan" && (age === "over_55" || age === "22_54")) {
+    return [{
+      name: "Adult Day Health Care",
+      url: "https://lighthouseguild.org/healthcare-services/adult-day-health-care/",
+      description: "If you or your loved one need daily medical services and crave social interaction, then our Adult Day Health Care (ADHC) program is for you. At GuildCare - the only ADHC program in New York State that specializes in people with vision loss - our healthcare services can be used daily or a few days a week, depending on your needs.",
+      image: "https://lighthouseguild.org//wp-content/uploads/fly-images/5747/tai-chi-1200x675-c.jpg",
+      video:"",
+      mapLocation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.4349310935972!2d-73.99028402397116!3d40.77445147138416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f503415555%3A0x511abbc44ce986aa!2sLighthouse%20Guild!5e0!3m2!1sen!2sus!4v1714943668907!5m2!1sen!2sus",
+      tags: ["Counseling", "Therapeutic Activities", "Nursing"]
+    }];
+  
+  } else if (location === "Others" && (age === "under_10" || age === "11_21")) {
+    return [{
+      name: "VCB Family Weeks",
+      url: "https://visionsvcb.org/what-we-do/short-term-residential-training/vcb/vcb-family-week/",
+      description: "Visions' weekly residential sessions at our campus in Rockland County, New York, introduce children who are blind or visually impaired (and their families) to vision rehabilitation through the joy of recreation!",
+      image: "https://visionsvcb.org/wp-content/uploads/2021/11/12-scaled.jpg",
+      video:"https://www.youtube.com/embed/NCCE7UHHxts?si=j3jwlR_PL19lmVPj",
+      mapLocation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3003.9405750257047!2d-74.04922892412436!3d41.15764801021428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2dd275bdb70ad%3A0xd17b2f4744af2642!2sVISIONS%20Center%20on%20Blindness%20(VCB)!5e0!3m2!1sen!2sus!4v1714945009283!5m2!1sen!2sus",
+      tags: ["Vision Rehabilitation", "Orientation & Mobility", "Family Activities"]
+    }];
+  
+  } else if (location === "Bronx" && (age === "under_10" || age === "11_21")) {
+    return [{
+      name: "Schermerhorn Program",
+      url: "https://www.nyise.org/apps/pages/index.jsp?uREC_ID=409369&type=d&pREC_ID=892615",
+      description: "The Schermerhorn Program has a 190-year history of serving students with blindness and visual impairments. It offers diverse educational services to meet the needs of children who are legally blind, from the ages of 5 to 21.",
+      image: "https://3.files.edl.io/d7d1/23/08/21/190246-d4a29c1d-6463-4e84-97a6-c979c98b4e08.jpg",
+      mapLocation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6035.1873901609315!2d-73.86135082413841!3d40.858843528613214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f3592db30c29%3A0xb6bf1a26c6392f28!2sNew%20York%20Institute%20For%20Special%20Education!5e0!3m2!1sen!2sus!4v1715060051756!5m2!1sen!2sus",
+      tags: ["Individual Education Plan", "Adaptive Technology", "Counseling "]
+    }];
+  
+  } else if (location === "Others" && age === "11_21") {
+    return [{
+      name: "FOCUS ",
+      url: "https://viawny.org/services/rehab/",
+      description: "FOCUS is a two-day/one-night program for children ages 10-21 who are legally blind. The program is at Beaver Hollow Conference Center, and VIA provides transportation. Students must have an active case with NYSCB to participate.",
+      image: "https://viawny.org/wp-content/uploads/2020/02/VIA-wall-letters-600x429.jpg",
+      mapLocation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2934.135202502197!2d-78.40304572405196!3d42.65849021619573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d3b3e38428fd9d%3A0xc6e86103cd872f55!2sBeaver%20Hollow%20Conference%20Center!5e0!3m2!1sen!2sus!4v1715060834471!5m2!1sen!2sus",
+      tags: ["Social Activities", "Self-confidence", "Interpersonal Skills"]
+    }];
+
+  } else if (location === "Manhattan" && age === "all ages") {
+    return [{
+      name: "Assistive Technology Training",
+      url: "https://lighthouseguild.org/support-services/assistive-technology-training/",
+      description: "Learn how to use the latest smart features for handheld devices, specialized computer programs, or other assistive technology-whether it's for school, work, or everyday life.",
+      image: "https://lighthouseguild.org//wp-content/uploads/fly-images/1258/asisst_phone2_600x400-1200x675-c.jpg",
+      mapLocation: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.4349310935972!2d-73.99028402397116!3d40.77445147138416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f503415555%3A0x511abbc44ce986aa!2sLighthouse%20Guild!5e0!3m2!1sen!2sus!4v1714943668907!5m2!1sen!2sus",
+      tags: ["Adaptive Technology", "Training ", "Evaluation"]
+    }];
+
+  } else if (location === "Staten Island" && (age === "under_10" || age === "11_21")) {
+    return [{
+      name: "Visually Impaired Education Program (V.I.E.P.)",
+      url: "https://blindmotherhood.com/viep/",
+      description: "The Visually Impaired Education Program (V.I.E.P.) provides an opportunity for elementary school children (Pre-K to 5) to learn how to positively and respectively interact with the blind and visually impaired community.",
+      image: "https://i0.wp.com/blindmotherhood.com/wp-content/uploads/2018/07/23472278_385320081921730_8632536783423804293_n.jpg?w=960&ssl=1",
+      mapLocation:"",
+      tags: ["Adaptive Technology", "Braille", "Guide Dogs"]
+    }];
+
+  } else if (location === "Queens" && (age === "under_10" || age === "11_21")) {
+    return [{
+      name: "NYDBC (New York Deaf-Blind Collaborative)",
+      url: "https://www.qc.cuny.edu/nydbc/nydbc-procedures/",
+      description: "The project will develop a TA action plan with you that will guide the services.",
+      image: "https://i0.wp.com/nyspta.org/wp-content/uploads/2023/11/NYDBC-FLR-2023-Group-Picture.jpg?fit=1468%2C635&ssl=1",
+      mapLocation:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24185.73982369479!2d-73.8198360436441!3d40.73523987839861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2605db418b9cd%3A0xac786f794a018877!2sQueens%20College%2C%20City%20University%20of%20New%20York!5e0!3m2!1sen!2sus!4v1715134664158!5m2!1sen!2sus",
+      tags: ["Adaptive Technology", "Training", "Evaluation"]
+    }];
+
+  } else {
+    return [];
+  }
+}
+
+
+function displayResults(results) {
+  const resultsContainer = document.getElementById("results-container");
+  
+  resultsContainer.innerHTML = "";
+  
+  if (results.length > 0) {
+    resultsContainer.style.display = "block";
+    
+    results.forEach(result => {
+      const resultDiv = document.createElement("div");
+      resultDiv.classList.add("search-result");
+
+      const nameLink = document.createElement("a");
+      nameLink.href = result.url; 
+      nameLink.textContent = result.name;
+      resultDiv.appendChild(nameLink);
+
+      const externalLinkIcon = document.createElement("i");
+      externalLinkIcon.classList.add("fas", "fa-external-link-alt");
+      resultDiv.appendChild(externalLinkIcon);
+
+      const tags = document.createElement("div");
+      tags.classList.add("tags");
+      result.tags.forEach(tag => {
+        const tagElement = document.createElement("span");
+        tagElement.textContent = tag;
+        tagElement.classList.add("tag");
+        tagElement.addEventListener("click", () => {
+          filterByTag(tag);
+        });
+        tags.appendChild(tagElement);
+      });
+      resultDiv.appendChild(tags);
+
+      const description = document.createElement("p");
+      description.textContent = result.description;
+      resultDiv.appendChild(description);
+
+      const image = document.createElement("img");
+      image.src = result.image;
+      image.alt = result.name;
+      resultDiv.appendChild(image);
+
+      if (result.video) {
+        const videoContainer = document.createElement("div");
+        videoContainer.classList.add("video-container");
+        const youtubeIframe = document.createElement("iframe");
+        youtubeIframe.src = result.video;
+        youtubeIframe.width = "560"; 
+        youtubeIframe.height = "315"; 
+        youtubeIframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+        youtubeIframe.allowFullscreen = true;
+        videoContainer.appendChild(youtubeIframe);
+        resultDiv.appendChild(videoContainer);
+      }
+
+      const map = document.createElement("iframe");
+      map.src = result.mapLocation;
+      map.width = "600"; 
+      map.height = "450"; 
+      map.style.border = "0";
+      map.allowFullscreen = true;
+      resultDiv.appendChild(map);
+
+      resultsContainer.appendChild(resultDiv);
+    });
+  } else {
+    resultsContainer.style.display = "none";
+  }
+}
+    </script>
+  </body>
+  </html>

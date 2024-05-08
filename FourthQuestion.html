@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<head>
+  <title>Fact Check</title>
+  <link rel="stylesheet" href="FourthQuestion.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="header">
+        <div id="menu">
+          <a class="menuItem" href="Index.html">Home</a>
+          <a class="menuItem" href="Fact.html">Fact Check</a>
+          <a class="menuItem" href="Services.html">Services</a>
+          <a class="menuItem" href="twinestory.html">History</a>
+          <a class="menuItem" href="Story.html">Story</a>
+        </div>
+        <div id="fontControls">
+        <input type="button" value="Increase Font Size" onclick="increaseSizeBy3px()">
+        <input type="button" value="Decrease Font Size" onclick="decreaseSizeBy3px()">
+        </div>
+    </div>
+  
+    <a href="#top" id="backToTopButton">Back to Top</a>
+    <script>
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            if (scrollPosition > 100) {
+                document.getElementById('backToTopButton').style.display = 'block';
+            } else {
+                document.getElementById('backToTopButton').style.display = 'none';
+            }
+        });
+        document.getElementById('backToTopButton').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+
+  <div id="result" class="result-container">
+    <p class="question">Which of the following occupations a blind person would be able to pursue?</p>
+    <p class="question">Click on the images to check them out.</p>
+    <div id="speakerBox1" class="speakerBox" onclick="playAudio('occupation1.mp3')">
+      <span class="readWholePageText">Read the Page</span>
+      <i id="speakerIcon1" class="fas fa-volume-up"></i>
+    </div>
+    <div class="result">
+      <div class="answer" onclick="changeImage(this)">
+        <div class="answer-content">
+          <p class="medium">Teacher</p>
+          <img src="teacher.jpg" alt="Teacher" data-original-src="teacher.jpg" data-new-src="blind teacher.jpg" data-current-src="teacher.jpg">
+        </div>
+        <div class="details hidden">
+          <p class="small">It's no wonder then that many students consider teaching as a career. Many blind students think about this, too. But they may also wonder how a blind person could do the job. The National Association of Blind Educators, a division of the National Federation of the Blind, is an organization of blind teachers. These teachers share information with each other. They also try to help young blind people who are considering a career in education. The following article, reprinted from the Spring/Summer, 1993 issue of The Blind Educator, a publication of the National Association of Blind Educators, answers many of the questions sighted and blind people commonly ask about how blind teachers can do their job.</p>
+         </div>
+       </div>
+        <div class="answer" onclick="changeImage(this)">
+          <div class="answer-content">
+            <p class="medium">Nurse</p>
+            <img src="Nurse.jpg" alt="Nurse" data-original-src="Nurse.jpg" data-new-src="blind nurse.jpg" data-current-src="Nurse.jpg">
+          </div>
+          <div class="details hidden">
+            <p>Absolutely, you can be a nurse if you have a visual disability. The ADA Amendments specify that mitigating measures or devices such as special eye wear cannot be considered in determining whether a person has an impairment that substantially limits a major life activity (the criterion for protection under the ADA).</p>
+          </div>
+        </div>
+        <div class="answer" onclick="changeImage(this)">
+          <div class="answer-content">
+            <p class="medium">Architect</p>
+            <img src="architect.jpg" alt="Architect" data-original-src="architect.jpg" data-new-src="blind architect.jpg" data-current-src="architect.jpg">
+          </div>
+          <div class="details hidden">
+            <p>Chris Downey is an architect who designs buildings with acoustics and accessibility in mind. When Chris lost his vision suddenly 10 years ago due to a brain tumor, he stayed in his field and applied his new sense of space to his designs.</p>
+            <a href="https://www.perkins.org/resource/chris-downey-blind-architect/" target="_blank" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="answer" onclick="changeImage(this)">
+          <div class="answer-content">
+            <p class="medium">Journalist</p>
+            <img src="Journalist.jpg" alt="Journalist" data-original-src="Journalist.jpg" data-new-src="blind journalist.jpg" data-current-src="Journalist.jpg">
+          </div>
+          <div class="details hidden">
+            <p>Gary O'Donoghue is a British journalist, currently working for BBC News in Washington, D.C. as one of their North America political correspondents. He is one of the most prominent blind correspondents in British media.</p>
+            <a href="https://nfb.org/sites/default/files/images/nfb/publications/fr/fr35/4/fr350410.htm" target="_blank" class="read-more">Read More</a>
+            <a href="https://www.perkins.org/resource/its-my-job-podcast-21-gary-odonoghue/" target="_blank" class="read-more">Listen More</a>
+          </div>
+        </div>
+        <div class="answer" onclick="changeImage(this)">
+          <div class="answer-content">
+            <p class="medium">Warehouse worker</p>
+            <img src="warehouse worker.jpg" alt="warehouse worker" data-original-src="warehouse worker.jpg" data-new-src="blind worker.jpg" data-current-src="warehouse worker.jpg">
+          </div>
+          <div class="details hidden">
+            <p>There's like over a hundred blind people working in just in New York at those Amazon warehouses now. This would have been deemed impossible a decade ago! Click here to listen to Khadija Bari, the director of Visions' workforce development department:</p>
+            <audio controls>
+              <source src="Amazon Warehouse.MP3" type="audio/mpeg">
+            </audio>
+            <audio controls>
+              <source src="Amazon Warehouse2.MP3" type="audio/mpeg">
+            </audio>
+            <a href="https://nfb.org/about-us/press-room/amazon-make-more-employment-opportunities-available-blind" target="_blank" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="answer" onclick="changeImage(this)">
+          <div class="answer-content">
+            <p class="medium">Pilot</p>
+            <img src="pilot.jpg" alt="Pilot" data-original-src="pilot.jpg" data-new-src="AI Pilot.png" data-current-src="pilot.jpg">
+          </div>
+          <div class="details hidden">
+            <p>It is impossible for blind people to be a pilot now. However, with AI-powered assistance technology, it may come true in another ten years.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    
+      <div id="congratulations" class="hidden">
+        <p>Congratulations! Thank you for your participation. Let's move to the <a href="Story.html">next step</a>.</p>
+      </div>
+
+      <div id="speakerBox2" class="speakerBox" onclick="playAudio('occupation2.mp3')">
+        <span class="readWholePageText">Read the Page</span>
+        <i id="speakerIcon2" class="fas fa-volume-up"></i>
+      </div>
+      <script>
+        function increaseSizeBy3px() {
+          console.log("Increasing font size by 3px...");
+          changeFontSizeByAmount(3);
+        }
+        
+        function decreaseSizeBy3px() {
+          console.log("Decreasing font size by 3px...");
+          changeFontSizeByAmount(-3);
+        }   
+        
+        function changeFontSizeByAmount(amount) {
+          console.log("Changing font size by", amount, "px...");
+          var elements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6');
+          elements.forEach(function(element) {
+            var fontSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
+            var currentFontSize = parseInt(fontSize);
+            element.style.fontSize = (currentFontSize + amount) + "px";
+          });
+        }
+      
+        function playAudio(audioFile) {
+        const audio = new Audio(audioFile);
+        audio.play();
+        }
+
+
+        function changeImage(answer) {
+      var image = answer.querySelector('img');
+      var details = answer.querySelector('.details');
+
+      var originalSrc = image.dataset.originalSrc;
+      var newSrc = image.dataset.newSrc;
+      var currentSrc = image.dataset.currentSrc;
+
+      if (currentSrc === originalSrc) {
+        image.src = newSrc;
+        image.dataset.currentSrc = newSrc;
+      } else {
+        image.src = originalSrc;
+        image.dataset.currentSrc = originalSrc;
+      }
+
+      details.classList.toggle('hidden');
+        }
+        
+        const lastAnswer = document.querySelector('.answer:last-child'); 
+
+lastAnswer.addEventListener('click', function() {
+  showCongratulations();
+});
+
+function showCongratulations() {
+  document.getElementById('congratulations').classList.remove('hidden');
+}
+
+      </script>
+    </body>
+    </html>

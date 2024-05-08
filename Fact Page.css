@@ -1,0 +1,146 @@
+body {
+  background-color: #d8e0d3;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d8e0d3;
+    padding: 10px 20px;
+  }
+  
+  #readWholePage {
+    display: flex;
+    justify-content: flex-end; 
+  }
+  
+  #speakerBox {
+    display: inline-flex; 
+    align-items: center; 
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer; 
+    font-weight: bold;
+  }
+  
+  #speakerBox:hover {
+    background-color: darkblue; 
+  }
+  
+  #readWholePageText {
+    margin-right: 10px;
+  }
+  
+  #speakerIcon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  
+  #speakerIcon:hover {
+    transform: scale(1.2); 
+  }
+  .menuItem {
+    margin: 0 10px; 
+    font-size: 26px; 
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .menuItem:not(:last-child)::after {
+    content: "|";
+    margin-left: 10px; 
+    margin-right: 10px; 
+  }
+
+
+  #fontControls {
+    margin-right: 3px;
+  }
+
+#fontControls input[type="button"] {
+    font-size: 24px;
+    padding: 5px 10px; 
+    margin:0;
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+#header input[type="button"]:hover {
+    background-color: #ff8c66;
+    color: white;
+    cursor:pointer;
+}
+
+hr {
+  border: none; 
+  border-bottom: 8px solid #857979; 
+  margin: 20px 0; 
+}
+
+#truth {
+  text-align: left;
+  margin-right: auto;
+  margin-left: 20px;
+  font-size: 38px; 
+  margin-bottom: 50px; 
+  font-weight: bold;
+  text-align: center;
+}
+
+
+#questions-container {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+}
+
+.question-box {
+  width: 45%; 
+  background-color: #857979; 
+  padding: 10px;
+  box-sizing: border-box; 
+  text-align: left;
+  margin-right: auto;
+  margin-left: 20px;
+  font-size: 28px; 
+  margin-bottom: 50px; 
+  font-weight: bold;
+}
+
+.question-box p {
+  color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .question-box {
+    width: 100%; 
+  }
+}
+
+.question-box:hover {
+  background-color: #e0e0e0; 
+  cursor: pointer; 
+}
+
+#backToTopButton {
+  display: none; 
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+  background-color: #007bff; 
+  color: white; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  text-decoration: none; 
+}
+
+#backToTopButton:hover {
+  background-color: #0056b3; 
+}

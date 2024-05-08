@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+  <title>Fact Check</title>
+  <link rel="stylesheet" href="ThirdQuestion.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div id="header">
+        <div id="menu">
+          <a class="menuItem" href="Index.html">Home</a>
+          <a class="menuItem" href="Fact.html">Fact Check</a>
+          <a class="menuItem" href="Services.html">Services</a>
+          <a class="menuItem" href="twinestory.html">History</a>
+          <a class="menuItem" href="Story.html">Story</a>
+        </div>
+        <div id="fontControls">
+        <input type="button" value="Increase Font Size" onclick="increaseSizeBy3px()">
+        <input type="button" value="Decrease Font Size" onclick="decreaseSizeBy3px()">
+        </div>
+        <div id="readWholePage">
+          <div id="speakerBox">
+          <span id="readWholePageText">Read Whole Page</span>
+          <i id="speakerIcon" class="fas fa-volume-up"></i>
+      </div>
+      </div>
+    </div>
+
+<div id="ThirdSentenceContainer">
+    <p id="causes">How to define <span style="color: red;">VISUAL IMPAIRMENTS</span>?
+    <p><button id="factButton3">FACT</button></p>
+</div>
+
+<div id="contentWrapper">
+    <div id="nextParagraph" style="display: none;">
+        <h1 id="Definition">Let's start with some Definition:</h1>
+        <button id="audioButton">Click here for audio</button>    
+        <p><span class="big-bold">Visual acuity (VA)</span> is a measure of the ability of the eye to distinguish shapes and the details of objects at a given distance.</p>
+        <p>In 1862, a Dutch Ophthalmologist, Dr. Hermann Snellen, devised this eye chart. He determined that there was a relationship between the sizes of certain letters viewed at certain distances.</p>
+        <div id="contentContainer">
+        <img id="Snellen Chart" src="visual-acuity.jpg" alt="Snellen Chart" width="50%">
+        <div>
+        <button id="audioButton2">Click here for audio</button>    
+        <p>The Snellen fractions, 20/20, 20/30, etc., are measures of sharpness of sight. They relate to the ability to identify small letters with high contrast at a specified distance.</p>
+        <p>In the Snellen fraction 20/20, the first number represents the test distance, 20 feet. The second number represents the distance that the average eye can see the letters on a certain line of the eye chart. So, 20/20 means that the eye being tested can read a certain size letter when it is 20 feet away.</p>
+        <p>If a patient sees 20/200, the smallest letter that they can see at 20 feet could be seen by a normal eye at 200 feet.</p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<a href="#top" id="backToTopButton">Back to Top</a>
+    <script>
+        window.addEventListener('scroll', function() {
+            var scrollPosition = window.scrollY;
+            if (scrollPosition > 100) {
+                document.getElementById('backToTopButton').style.display = 'block';
+            } else {
+                document.getElementById('backToTopButton').style.display = 'none';
+            }
+        });
+        document.getElementById('backToTopButton').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+    
+<div id="nextParagraph" style="display: none;"></div>
+
+<script>
+
+  function increaseSizeBy3px() {
+            console.log("Increasing font size by 3px...");
+            changeFontSizeByAmount(3);
+        }
+        function decreaseSizeBy3px() {
+            console.log("Decreasing font size by 3px...");
+            changeFontSizeByAmount(-3);
+        }   
+        function changeFontSizeByAmount(amount) {
+            console.log("Changing font size by", amount, "px...");
+            var elements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6');
+            elements.forEach(function(element) {
+                var fontSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
+                var currentFontSize = parseInt(fontSize);
+                element.style.fontSize = (currentFontSize + amount) + "px";
+            });
+        }
+
+        document.getElementById("factButton3").addEventListener("click", function() {
+        const targetElement = document.getElementById("nextParagraph");
+        targetElement.style.display = "block";
+        createCausesList(); 
+      });
+
+      document.getElementById("audioButton").addEventListener("click", function() {
+      const audio = new Audio('legally blind def.MP3');
+      audio.play();
+    });
+    document.getElementById("audioButton2").addEventListener("click", function() {
+      const audio = new Audio('legally blind.MP3');
+      audio.play();
+    });
+    document.getElementById("speakerIcon").addEventListener("click", function() {
+    const audio = new Audio('define.mp3');
+    audio.play();
+});
+</script>
+</body>
+</html>
